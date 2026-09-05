@@ -1,6 +1,6 @@
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     name VARCHAR(100) NOT NULL,
     avatar_url VARCHAR, 
@@ -10,6 +10,6 @@ CREATE TABLE users (
     created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE product (
+CREATE TABLE IF NOT EXISTS product (
 id UUID PRIMARY KEY DEFAULT gen_random_uuid()
 );
