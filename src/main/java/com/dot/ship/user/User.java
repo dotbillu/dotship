@@ -1,27 +1,37 @@
 package com.dot.ship.user;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.AccessLevel;
 
+@Entity
+@Table(name = "users")
 @Getter
 @Setter
 public class User {
+  @Id
+  @GeneratedValue
   private UUID id;
+
   private String name;
+
+  @Column(name = "avatar_url")
   private String avatarUrl;
+
   private String email;
 
-  @Getter(AccessLevel.NONE)
-  @Setter(AccessLevel.NONE)
+  @Column(name = "google_id")
   private String googleId;
-  @Getter(AccessLevel.NONE)
-  @Setter(AccessLevel.NONE)
-
   private String password;
-  private LocalDateTime createdAt;
+
+  @Column(name = "created_at")
+  private OffsetDateTime createdAt;
 
 }

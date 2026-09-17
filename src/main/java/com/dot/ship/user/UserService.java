@@ -16,6 +16,10 @@ public class UserService {
   }
 
   public User getUserById(UUID id) {
-    return userRepository.findById(id);
+    return this.userRepository.findById(id).orElseThrow();
+  }
+
+  public User CreateUser(User user) {
+    return this.userRepository.save(user);
   }
 }
