@@ -1,12 +1,9 @@
 package com.dot.ship.user;
 
-import java.time.OffsetDateTime;
-import java.util.UUID;
+import com.dot.ship.common.entity.BaseEntity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,10 +12,7 @@ import lombok.Setter;
 @Table(name = "users")
 @Getter
 @Setter
-public class User {
-  @Id
-  @GeneratedValue
-  private UUID id;
+public class User extends BaseEntity {
 
   private String name;
 
@@ -30,8 +24,5 @@ public class User {
   @Column(name = "google_id")
   private String googleId;
   private String password;
-
-  @Column(name = "created_at")
-  private OffsetDateTime createdAt;
 
 }

@@ -4,6 +4,8 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import com.dot.ship.common.exception.ResourceNotFoundException;
+
 /**
  * UserService
  */
@@ -16,7 +18,8 @@ public class UserService {
   }
 
   public User getUserById(UUID id) {
-    return this.userRepository.findById(id).orElseThrow();
+    return this.userRepository.findById(id)
+        .orElseThrow(() -> new ResourceNotFoundException("No user found with Id :" + id));
   }
 
   public User CreateUser(User user) {
