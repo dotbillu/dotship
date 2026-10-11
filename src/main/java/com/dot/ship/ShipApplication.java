@@ -10,7 +10,6 @@ public class ShipApplication {
 
   public static void main(String[] args) {
     SpringApplication.run(ShipApplication.class, args);
-
   }
 
 }
